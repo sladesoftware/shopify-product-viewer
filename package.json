@@ -1,7 +1,7 @@
 {
-  "name": "shopify-node-app",
+  "name": "shopify-product-viewer",
   "version": "1.0.0",
-  "description": "Shopify's node app for CLI tool",
+  "description": "An embedded Shopify app that provides a view of products in a dialog with the ability to drill down to view variants.",
   "scripts": {
     "test": "jest",
     "dev": "NODE_ENV=development nodemon ./server/index.js --watch ./server/index.js",
@@ -10,12 +10,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Shopify/shopify-node-app.git"
+    "url": "git+https://github.com/sladesoftware/shopify-product-viewer.git"
   },
   "author": "Shopify Inc.",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/shopify/shopify-node-app/issues"
+    "url": "https://github.com/sladesoftware/shopify-product-viewer/issues"
   },
   "dependencies": {
     "@babel/core": "7.9.0",
