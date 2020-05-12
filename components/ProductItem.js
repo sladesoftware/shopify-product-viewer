@@ -1,5 +1,6 @@
 import { memo } from "react"
 import { ResourceList, Stack, TextStyle } from "@shopify/polaris"
+import ProductImage from "./ProductImage"
 
 const ProductItem = ({ product }) => (
   <ResourceList.Item
