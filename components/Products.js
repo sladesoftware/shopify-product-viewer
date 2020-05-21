@@ -1,8 +1,8 @@
-import { memo } from "react"
-import { gql } from "apollo-boost"
-import { useQuery } from "react-apollo"
-import { Banner, EmptyState, ResourceList } from "@shopify/polaris"
-import ProductItem from "./ProductItem"
+import { memo } from "react";
+import { gql } from "apollo-boost";
+import { useQuery } from "react-apollo";
+import { Banner, EmptyState, ResourceList } from "@shopify/polaris";
+import ProductItem from "./ProductItem";
 
 const GET_PRODUCTS = gql`
   query products {
@@ -34,24 +34,20 @@ const GET_PRODUCTS = gql`
       }
     }
   }
-`
+`;
 
-const Products = () => {
-  const { data, loading, error } = useQuery(GET_PRODUCTS)
+const Products = ({ onProductClicked }) => {
+  const { data, loading, error } = useQuery(GET_PRODUCTS);
 
   if (loading) {
-    return <div>Loading...</div>
+    return <div>Loading...</div>;
   }
 
   if (error) {
-    return (
-      <Banner status="critical">
-        {error.message}
-      </Banner>
-    )
+    return <Banner status="critical">{error.message}</Banner>;
   }
 
-  const products = (data.products.edges || []).map(edge => edge.node)
+  const products = (data.products.edges || []).map((edge) => edge.node);
   if (products.length === 0) {
     return (
       <EmptyState
@@ -60,7 +56,7 @@ const Products = () => {
       >
         There are no products in your Shopify store
       </EmptyState>
-    )
+    );
   }
 
   return (
@@ -68,12 +64,14 @@ const Products = () => {
       showHeader
       resourceName={{
         singular: "Product",
-        plural: "Products"
+        plural: "Products",
       }}
       items={products}
-      renderItem={item => <ProductItem product={item} />}
+      renderItem={(item) => (
+        <ProductItem product={item} onClick={onProductClicked} />
+      )}
     />
-  )
-}
+  );
+};
 
-export default memo(Products)
+export default memo(Products);

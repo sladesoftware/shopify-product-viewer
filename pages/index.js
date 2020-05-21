@@ -1,14 +1,26 @@
-import { Heading, Page } from "@shopify/polaris"
-import Products from "../components/Products"
+import { memo, useState } from "react";
+import { Heading, Page } from "@shopify/polaris";
+import Products from "../components/Products";
+import ProductViewDialog from "../components/ProductViewDialog";
 
-const Index = () => (
-  <Page>
-    <Heading>
-      Products
-    </Heading>
+const Index = () => {
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
-    <Products />
-  </Page>
-);
+  return (
+    <Page>
+      <Heading>Products</Heading>
 
-export default Index;
+      <Products onProductClicked={(product) => setSelectedProduct(product)} />
+
+      {!!selectedProduct && (
+        <ProductViewDialog
+          open={!!selectedProduct}
+          onClose={() => setSelectedProduct(null)}
+          product={selectedProduct}
+        />
+      )}
+    </Page>
+  );
+};
+
+export default memo(Index);
