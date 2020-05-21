@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { Avatar } from "@shopify/polaris";
 
-const ProductImage = ({ product }) => {
+const ProductAvatar = ({ product }) => {
   const images = product.images.edges || [];
   const image = images.length === 0 ? null : images[0].node;
 
@@ -16,4 +16,4 @@ const ProductImage = ({ product }) => {
   );
 };
 
-export default memo(ProductImage);
+export default memo(ProductAvatar);

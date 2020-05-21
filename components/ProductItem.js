@@ -1,11 +1,11 @@
 import { memo } from "react";
 import { ResourceList, Stack, TextStyle } from "@shopify/polaris";
-import ProductImage from "./ProductImage";
+import ProductAvatar from "./ProductAvatar";
 
 const ProductItem = ({ product, onClick }) => (
   <ResourceList.Item
     id={product.id}
-    media={<ProductImage product={product} />}
+    media={<ProductAvatar product={product} />}
     onClick={() => onClick(product)}
   >
     <Stack>

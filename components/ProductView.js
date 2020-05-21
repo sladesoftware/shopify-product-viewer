@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { Banner, Heading, TextStyle } from "@shopify/polaris";
-import ProductImage from "./ProductImage";
+import ProductAvatar from "./ProductAvatar";
 
 const ProductView = ({ product }) => {
   if (!product) {
@@ -9,7 +9,7 @@ const ProductView = ({ product }) => {
 
   return (
     <>
-      <ProductImage product={product} />
+      <ProductAvatar product={product} />
 
       <Heading>{product.title}</Heading>
       <TextStyle>{product.description}</TextStyle>
