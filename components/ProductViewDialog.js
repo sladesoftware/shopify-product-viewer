@@ -5,12 +5,17 @@ import { Modal, Banner } from "@shopify/polaris";
 import ProductView from "./ProductView";
 
 const GET_PRODUCT_BY_ID = gql`
-  query products($query: String!) {
-    products(query: $query, first: 1) {
-      edges {
-        node {
-          id
-          title
+  query product($id: ID!) {
+    product(id: $id) {
+      id
+      title
+      description
+      images(first: 1) {
+        edges {
+          node {
+            altText
+            originalSrc
+          }
         }
       }
     }
@@ -20,16 +25,11 @@ const GET_PRODUCT_BY_ID = gql`
 const ProductViewDialog = ({ open, onClose, productId, productTitle }) => {
   const { data, loading, error } = useQuery(GET_PRODUCT_BY_ID, {
     variables: {
-      query: `product_id=${productId}`,
+      id: productId,
     },
   });
 
-  const product =
-    data &&
-    data.products &&
-    data.products.edges &&
-    data.products.edges.length === 1 &&
-    data.products.edges[0].node;
+  console.log(productId);
 
   return (
     <Modal
@@ -45,7 +45,7 @@ const ProductViewDialog = ({ open, onClose, productId, productTitle }) => {
       {!!error && <Banner status="critical">{error.message}</Banner>}
 
       <Modal.Section>
-        <ProductView product={product} />
+        <ProductView product={data && data.product} />
       </Modal.Section>
     </Modal>
   );
