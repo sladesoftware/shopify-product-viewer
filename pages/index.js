@@ -16,7 +16,8 @@ const Index = () => {
         <ProductViewDialog
           open={!!selectedProduct}
           onClose={() => setSelectedProduct(null)}
-          product={selectedProduct}
+          productId={selectedProduct.id}
+          productTitle={selectedProduct.title}
         />
       )}
     </Page>
