@@ -66,7 +66,9 @@ const ProductViewDialog = ({ open, onClose, productId, productTitle }) => {
       {!!error && <Banner status="critical">{error.message}</Banner>}
 
       <Modal.Section>
-        <ProductView product={data && data.product} />
+        <ProductView product={data && data.product}>
+          <div>TODO: Variants</div>
+        </ProductView>
       </Modal.Section>
     </Modal>
   );
