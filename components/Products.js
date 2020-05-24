@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { gql } from "apollo-boost";
 import { useQuery } from "react-apollo";
-import { Banner, EmptyState, ResourceList } from "@shopify/polaris";
+import { Banner, EmptyState, ResourceList, Spinner } from "@shopify/polaris";
 import ProductItem from "./ProductItem";
 
 const GET_PRODUCTS = gql`
@@ -40,7 +40,7 @@ const Products = ({ onProductClicked }) => {
   const { data, loading, error } = useQuery(GET_PRODUCTS);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Spinner />;
   }
 
   if (error) {

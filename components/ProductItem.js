@@ -2,6 +2,12 @@ import { memo } from "react";
 import { ResourceList, Stack, TextStyle } from "@shopify/polaris";
 import ProductAvatar from "./ProductAvatar";
 
+const monetaryFormat = new Intl.NumberFormat("en-GB", {
+  currency: "GBP",
+  style: "currency",
+  maximumSignificantDigits: 2,
+});
+
 const ProductItem = ({ product, onClick }) => (
   <ResourceList.Item
     id={product.id}
@@ -18,11 +24,13 @@ const ProductItem = ({ product, onClick }) => (
       <Stack.Item>
         <p>
           Price range:&nbsp;
-          {product.priceRange.minVariantPrice.amount}
-          {product.priceRange.minVariantPrice.currencyCode}
+          {monetaryFormat.format(
+            product.priceRange.minVariantPrice.amount / 100
+          )}
           &nbsp;-&nbsp;
-          {product.priceRange.maxVariantPrice.amount}
-          {product.priceRange.maxVariantPrice.currencyCode}
+          {monetaryFormat.format(
+            product.priceRange.maxVariantPrice.amount / 100
+          )}
         </p>
       </Stack.Item>
     </Stack>

@@ -6,6 +6,7 @@ import createApp from "@shopify/app-bridge";
 import { Redirect } from "@shopify/app-bridge/actions";
 import Cookies from "js-cookie";
 import ProductView from "./ProductView";
+import ProductVariants from "./ProductVariants";
 
 const GET_PRODUCT_BY_ID = gql`
   query product($id: ID!) {
@@ -67,7 +68,7 @@ const ProductViewDialog = ({ open, onClose, productId, productTitle }) => {
 
       <Modal.Section>
         <ProductView product={data && data.product}>
-          <div>TODO: Variants</div>
+          <ProductVariants productId={productId} />
         </ProductView>
       </Modal.Section>
     </Modal>
