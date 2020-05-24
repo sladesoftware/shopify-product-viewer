@@ -1,7 +1,7 @@
 # Shopify Product Viewer Embedded App
 
 [![License: MIT](https://img.shields.io/cran/l/devtools)](LICENSE)
-[![Build Status](https://github.com/sladesoftware/shopify-product-viewer/workflows/Node.js%20CI/badge.svg?branch=master)](build)
+![Build Status](https://github.com/sladesoftware/shopify-product-viewer/workflows/build/badge.svg?branch=master)
 
 ## License
 
