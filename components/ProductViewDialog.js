@@ -2,6 +2,9 @@ import { memo } from "react";
 import { gql } from "apollo-boost";
 import { useQuery } from "react-apollo";
 import { Modal, Banner } from "@shopify/polaris";
+import createApp from "@shopify/app-bridge";
+import { Redirect } from "@shopify/app-bridge/actions";
+import Cookies from "js-cookie";
 import ProductView from "./ProductView";
 
 const GET_PRODUCT_BY_ID = gql`
@@ -39,6 +42,25 @@ const ProductViewDialog = ({ open, onClose, productId, productTitle }) => {
         content: "Close",
         onAction: onClose,
       }}
+      secondaryActions={[
+        {
+          content: "Edit product",
+          onAction() {
+            const app = createApp({
+              apiKey: API_KEY,
+              shopOrigin: Cookies.get("shopOrigin"),
+            });
+
+            const redirect = Redirect.create(app);
+            redirect.dispatch(Redirect.Action.ADMIN_SECTION, {
+              name: Redirect.ResourceType.Product,
+              resource: {
+                id: productId.split("/").pop(),
+              },
+            });
+          },
+        },
+      ]}
       loading={loading}
     >
       {!!error && <Banner status="critical">{error.message}</Banner>}

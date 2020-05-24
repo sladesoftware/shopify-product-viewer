@@ -14,7 +14,7 @@ const ProductView = ({ product }) => {
     <>
       <Stack vertical>
         <Stack.Item fill>
-          {images.length > 1 ? (
+          {images.length > 0 ? (
             <img
               width="100%"
               height="100%"
