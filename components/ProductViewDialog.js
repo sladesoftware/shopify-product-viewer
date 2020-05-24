@@ -10,6 +10,7 @@ const GET_PRODUCT_BY_ID = gql`
       id
       title
       description
+      tags
       images(first: 1) {
         edges {
           node {
@@ -28,8 +29,6 @@ const ProductViewDialog = ({ open, onClose, productId, productTitle }) => {
       id: productId,
     },
   });
-
-  console.log(productId);
 
   return (
     <Modal
