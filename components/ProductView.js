@@ -1,4 +1,4 @@
-import { memo } from "react";
+import React, { memo } from "react";
 import { Banner, Card, Stack } from "@shopify/polaris";
 import NoImage from "./NoImage";
 import Tags from "./Tags";

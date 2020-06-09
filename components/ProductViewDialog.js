@@ -1,4 +1,4 @@
-import { memo } from "react";
+import React, { memo } from "react";
 import { gql } from "apollo-boost";
 import { useQuery } from "react-apollo";
 import { Modal, Banner } from "@shopify/polaris";

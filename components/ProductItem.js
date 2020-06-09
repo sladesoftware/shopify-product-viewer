@@ -1,4 +1,4 @@
-import { memo } from "react";
+import React, { memo } from "react";
 import { ResourceList, Stack, TextStyle } from "@shopify/polaris";
 import ProductAvatar from "./ProductAvatar";
 
