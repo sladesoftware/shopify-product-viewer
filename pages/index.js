@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import React, { memo, useState } from "react";
 import { Heading, Page } from "@shopify/polaris";
 import Products from "../components/Products";
 import ProductViewDialog from "../components/ProductViewDialog";
