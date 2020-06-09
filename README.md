@@ -2,6 +2,7 @@
 
 [![License: MIT](https://img.shields.io/cran/l/devtools)](LICENSE)
 ![Build Status](https://github.com/sladesoftware/shopify-product-viewer/workflows/build/badge.svg?branch=master)
+![test](https://github.com/sladesoftware/shopify-product-viewer/workflows/test/badge.svg)
 
 ## License
 
